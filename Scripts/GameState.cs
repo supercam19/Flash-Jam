@@ -6,9 +6,11 @@ public class GameState : MonoBehaviour
 {
     [HideInInspector]
     public bool inTitle = false;
-
-    [HideInInspector] 
+    
     public static float sensitivity = 100f;
+    public static float startTime = 0;
+    public static float bestTime = float.MaxValue;
+    
 
     void Start()
     {
@@ -21,6 +23,7 @@ public class GameState : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         SceneManager.LoadScene("SampleScene");
+        startTime = Time.time;
     }
 
     public static void SaveSensitivity(float value)

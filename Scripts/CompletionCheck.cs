@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CompletionCheck : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class CompletionCheck : MonoBehaviour
     {
         if (numCollected >= totalCollectables && Vector3.Distance(transform.position, exitPoint.position) < 1.0f)
         {
-            //idk do something
+            SceneManager.LoadScene("GameOver");
         }
     }
 
