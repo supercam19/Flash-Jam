@@ -8,6 +8,7 @@ public class GameState : MonoBehaviour
     public bool inTitle = false;
     
     public static float sensitivity = 100f;
+    public static float volume = 1f;
     public static float startTime = 0;
     public static float bestTime = float.MaxValue;
     
@@ -29,6 +30,11 @@ public class GameState : MonoBehaviour
     public static void SaveSensitivity(float value)
     {
         sensitivity = value;
+    }
+
+    public static void SaveVolume(float value)
+    {
+        volume = value / 100;
     }
     
 }
