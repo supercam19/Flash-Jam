@@ -3,9 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class CompletionCheck : MonoBehaviour
 {
+    public Transform player;
     public Transform exitPoint;
     public GameObject[] requirements;
-
+    public GameObject finishText;
     private static GameObject[] staticRequirements;
     private static int totalCollectables = 7;
     private static int numCollected = 0;
@@ -13,13 +14,22 @@ public class CompletionCheck : MonoBehaviour
     void Start()
     {
         staticRequirements = requirements;
+        finishText.SetActive(false);
     }
 
     void Update()
     {
-        if (numCollected >= totalCollectables && Vector3.Distance(transform.position, exitPoint.position) < 1.0f)
+        if (numCollected >= totalCollectables)
         {
-            SceneManager.LoadScene("GameOver");
+            if (!finishText.activeInHierarchy)
+            {
+                finishText.SetActive(true);
+            }
+            if(Vector3.Distance(player.position, exitPoint.position) < 5.0f)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+            
         }
     }
 
