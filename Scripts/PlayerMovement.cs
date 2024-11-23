@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //private Rigidbody rb;
     public Transform groundCheck;
+    public LayerMask itemMask;
     public CharacterController cc;
     public float speed = 10;
     Vector3 movement = Vector3.zero;
@@ -33,6 +34,10 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             grounded = Physics.CheckSphere(groundCheck.position, 0.25f, groundMask);
+            if (!grounded)
+            {
+                grounded = Physics.CheckSphere(groundCheck.position, 0.25f, itemMask);
+            }
         }
 
         if (!grounded)

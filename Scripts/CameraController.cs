@@ -8,7 +8,10 @@ public class CameraController : MonoBehaviour
 
     private float rotX;
     private float rotY;
-    
+    void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     void Update()
     {
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
