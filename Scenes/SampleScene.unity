@@ -30065,11 +30065,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 841649997506898538, guid: e5b3aeaa1a1c42f409ce1c6d38bc24a7, type: 3}
       propertyPath: goalMask.m_Bits
-      value: 0
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 841649997506898538, guid: e5b3aeaa1a1c42f409ce1c6d38bc24a7, type: 3}
       propertyPath: itemMask.m_Bits
-      value: 0
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 4404885412746393068, guid: e5b3aeaa1a1c42f409ce1c6d38bc24a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30117,11 +30117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6539832154685342314, guid: e5b3aeaa1a1c42f409ce1c6d38bc24a7, type: 3}
       propertyPath: itemMask.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6539832154685342314, guid: e5b3aeaa1a1c42f409ce1c6d38bc24a7, type: 3}
-      propertyPath: groundMask.m_Bits
-      value: 0
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 8952303058934771207, guid: e5b3aeaa1a1c42f409ce1c6d38bc24a7, type: 3}
       propertyPath: m_Name
