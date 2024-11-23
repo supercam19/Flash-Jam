@@ -19,6 +19,11 @@ public class GameState : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    public static void LoadTitle()
+    {
+        SceneManager.LoadScene("TitleScreen");
+    }
+
     public static void LoadGame()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -36,5 +41,30 @@ public class GameState : MonoBehaviour
     {
         volume = value / 100;
     }
-    
+
+    public static string GetTime()
+    {
+        float time = Time.time - startTime;
+        if (time < bestTime)
+        {
+            bestTime = time;
+        }
+
+        return FormatTimeBuilder(time);
+    }
+
+    public static string GetBestTime()
+    {
+        GetTime();
+        return FormatTimeBuilder(bestTime);
+    }
+
+    private static string FormatTimeBuilder(float timeSecs)
+    {
+        int minutes = (int)(timeSecs / 60);
+        timeSecs -= minutes * 60;
+        int secs = (int)timeSecs;
+        timeSecs -= secs;
+        return string.Format("{0:00}:{1:00}.{2:00}", minutes, secs, timeSecs);
+    }
 }
