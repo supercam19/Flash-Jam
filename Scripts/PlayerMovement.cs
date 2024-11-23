@@ -5,9 +5,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Transform player;
 
+    [SerializeField] private float groundSpeed = 10;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
         player = gameObject.transform;
     }
 
@@ -16,6 +19,6 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        player.position = player.position + new Vector3(horizontal, 0, vertical);
+        rb.linearVelocity = new Vector3(horizontal, 0, vertical) * groundSpeed;
     }
 }
