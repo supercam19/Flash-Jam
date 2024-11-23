@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         movement = transform.right * Input.GetAxisRaw("Horizontal") + transform.forward * Input.GetAxisRaw("Vertical");
-        cc.Move(movement * Time.deltaTime * speed);
+        cc.Move(movement * (Time.deltaTime * speed));
         //rb.linearVelocity = horizontal * groundSpeed * orientation.forward + vertical * groundSpeed * orientation.right;
         if(downVelocity < 0)
         {
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         if (!grounded)
         {
             downVelocity += gravity * Time.deltaTime;
-            cc.Move(Vector3.down * downVelocity * Time.deltaTime);
+            cc.Move(Vector3.down * (downVelocity * Time.deltaTime));
         }
         if(grounded)
         {

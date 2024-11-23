@@ -11,6 +11,10 @@ public class CameraController : MonoBehaviour
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        sensX = GameState.sensitivity * 10;
+        sensY = GameState.sensitivity * 10;
     }
     void Update()
     {
