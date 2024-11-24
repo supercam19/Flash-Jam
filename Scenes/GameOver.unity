@@ -1215,7 +1215,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1850866958}
-        m_TargetAssemblyTypeName: GameState, Assembly-CSharp
+        m_TargetAssemblyTypeName: Restarter, Assembly-CSharp
         m_MethodName: LoadTitle
         m_Mode: 1
         m_Arguments:
@@ -1273,10 +1273,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1850866953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5539e9a7052e2aa41b895ec7d8a0e73a, type: 3}
+  m_Script: {fileID: 11500000, guid: 952e9fa15132e594889e95ce677a87b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inTitle: 0
 --- !u!1 &2133014299
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,12 +17,7 @@ public class GameState : MonoBehaviour
     {
         inTitle = true;
         DontDestroyOnLoad(this.gameObject);
-    }
-
-    public static void LoadTitle()
-    {
-        SceneManager.LoadScene("TitleScreen");
-    }
+    } 
 
     public static void LoadGame()
     {
