@@ -15,15 +15,22 @@ public class PlayerMovement : MonoBehaviour
     public float jumpVelocity = 10;
     private float groundTimer = 0f;
     public float bhopTimer = 0.1f;
-
+    AudioManager am;
+    
     void Start()
     {
         cc = GetComponent<CharacterController>();
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void Update()
     {
         movement = transform.right * Input.GetAxisRaw("Horizontal") + transform.forward * Input.GetAxisRaw("Vertical");
+        if(movement.magnitude != 0 && grounded )
+        {
+            am.PlayOnce("step");
+            am.PitchVolumeMove("step", speed / 20);
+        }
         cc.Move(movement * (Time.deltaTime * speed));
         //rb.linearVelocity = horizontal * groundSpeed * orientation.forward + vertical * groundSpeed * orientation.right;
         if(downVelocity < 0)
@@ -59,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKeyDown("space"))
             {
+                am.Play("jump");
                 downVelocity = -jumpVelocity;
                 if (groundTimer > 0)
                 {
