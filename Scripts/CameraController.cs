@@ -13,8 +13,8 @@ public class CameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        sensX = GameState.sensitivity * 10;
-        sensY = GameState.sensitivity * 10;
+        sensX = GameState.sensitivity * 5;
+        sensY = GameState.sensitivity * 5;
     }
     void Update()
     {

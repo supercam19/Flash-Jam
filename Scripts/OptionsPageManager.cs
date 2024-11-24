@@ -6,6 +6,11 @@ public class OptionsPageManager : MonoBehaviour
     public GameObject titlePage;
     public GameObject optionsPage;
 
+    void Start()
+    {
+        CloseOptionsPage();
+    }
+
     public void OpenOptionsPage()
     {
         titlePage.SetActive(false);
