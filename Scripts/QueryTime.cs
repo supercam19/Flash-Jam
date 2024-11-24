@@ -13,11 +13,11 @@ public class QueryTime : MonoBehaviour
         text = GetComponent<TextMeshProUGUI>();
         if (queryBestTime)
         {
-            text.text = GameState.GetBestTime();
+            text.text = "Best time: " + GameState.GetBestTime();
         }
         else
         {
-            text.text = GameState.GetTime();
+            text.text = "Your time: " + GameState.GetTime();
         }
     }
 }
