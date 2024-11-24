@@ -25,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown("escape"))
+        {
+            Application.Quit();
+        }
         movement = transform.right * Input.GetAxisRaw("Horizontal") + transform.forward * Input.GetAxisRaw("Vertical");
         if(movement.magnitude != 0 && grounded )
         {
@@ -71,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
                 if (groundTimer > 0)
                 {
                     speed= speed * 1.25f;
+                    speed = Mathf.Clamp(speed, 10, 30);
                 }
                 grounded = false;
             }

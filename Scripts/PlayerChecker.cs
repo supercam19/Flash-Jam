@@ -9,4 +9,12 @@ public class PlayerChecker : MonoBehaviour
             transform.parent.GetComponent<CompletionCheck>().Triggered(gameObject.name);
         }
     }
+    private void OnTriggerLeave(Collider other)
+    {
+        print("Left");
+        if (other.gameObject.tag == "Player")
+        {
+            transform.parent.GetComponent<CompletionCheck>().Triggered("Anti" + gameObject.name);
+        }
+    }
 }

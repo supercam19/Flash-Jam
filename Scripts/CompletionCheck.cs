@@ -12,9 +12,12 @@ public class CompletionCheck : MonoBehaviour
     private static int totalCollectables = 7;
     private static int numCollected = 0;
 
+    bool startCheckoutTimer = false;
+    public float checkoutTimer = 3;
     public bool payed = true;
     public GameObject checkOut;
     public GameObject alarm;
+    public GameObject payingText;
     void Start()
     {
         staticRequirements = requirements;
@@ -22,6 +25,7 @@ public class CompletionCheck : MonoBehaviour
         block.SetActive(false);
         checkOut.SetActive(false);
         alarm.SetActive(false);
+        payingText.SetActive(false);
     }
 
     void Update()
@@ -37,9 +41,25 @@ public class CompletionCheck : MonoBehaviour
             }
             if(Vector3.Distance(player.position, exitPoint.position) < 5.0f)
             {
+                GameObject.Find("AudioManager").GetComponent<AudioManager>().Stop("vov");
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 SceneManager.LoadScene("GameOver");
             }
             
+        }
+        if (startCheckoutTimer && checkoutTimer > 0)
+        {
+            checkoutTimer -= Time.deltaTime;
+            if (checkoutTimer < 0)
+            {
+                payed = true;
+                GameObject.Find("AudioManager").GetComponent<AudioManager>().Play("check");
+                block.SetActive(false);
+                checkOut.SetActive(false);
+                alarm.SetActive(false);
+                payingText.SetActive(false);
+            }
         }
     }
 
@@ -63,7 +83,8 @@ public class CompletionCheck : MonoBehaviour
         {
             if(name == "CheckOut")
             {
-                payed = true;
+                payingText.SetActive(true);
+                startCheckoutTimer = true;
                 return;
             }
             if (name == "AlertLine")
@@ -75,6 +96,12 @@ public class CompletionCheck : MonoBehaviour
                 GameObject.Find("Directional Light").GetComponent<Light>().color = Color.red;
                 checkOut.SetActive(false);
                 alarm.SetActive(false);
+            }
+            if (name == "AntiCheckOut")
+            {
+                payingText.SetActive(false);
+                checkoutTimer = 3;
+                startCheckoutTimer = false;
             }
         }
     }
